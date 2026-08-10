@@ -60,7 +60,6 @@
             padding: 30px 20px;
         }
 
-        /* О нас */
         .about-section {
             background: white;
             border-radius: 12px;
@@ -85,7 +84,6 @@
             line-height: 1.8;
         }
 
-        /* Баннеры доверия и юридические гарантии */
         .trust-banner {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -145,23 +143,37 @@
             box-shadow: 0 8px 25px rgba(183, 110, 121, 0.15);
         }
 
-        .product-img-container {
+        .product-cover {
             width: 100%;
-            height: 300px;
-            background: #f0eae1;
-            overflow: hidden;
+            height: 200px;
+            background: linear-gradient(135deg, #2c2c2c, #4a3b3e);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
         }
 
-        .product-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .product-cover.gold {
+            background: linear-gradient(135deg, #3d3428, #1a1a1a);
         }
 
-        .product-card:hover .product-img {
-            transform: scale(1.03);
+        .product-cover span.cover-type {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .product-cover h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.3;
         }
 
         .badge {
@@ -186,7 +198,7 @@
         }
 
         .product-title {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 600;
             margin-bottom: 8px;
             color: var(--text);
@@ -197,10 +209,6 @@
             color: var(--text-light);
             margin-bottom: 15px;
             flex-grow: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
         .product-footer {
@@ -238,7 +246,6 @@
             background: var(--primary-dark);
         }
 
-        /* ЮРИДИЧЕСКИЙ РАЗДЕЛ (АККОРДЕОНЫ ДЛЯ МОДЕРАЦИИ) */
         .legal-section {
             background: white;
             border-radius: 12px;
@@ -301,7 +308,6 @@
             margin: 15px 0 5px;
         }
 
-        /* МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА */
         .modal {
             display: none;
             position: fixed;
@@ -322,17 +328,11 @@
             padding: 35px;
             border-radius: 12px;
             width: 90%;
-            max-width: 750px;
+            max-width: 650px;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            animation: fadeIn 0.3s;
             max-height: 90vh;
             overflow-y: auto;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .close-modal {
@@ -347,15 +347,6 @@
 
         .close-modal:hover {
             color: var(--text);
-        }
-
-        .modal-main-img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            background: #eee;
         }
 
         footer {
@@ -391,14 +382,12 @@
 
     <div class="container">
         
-        <!-- БЛОК "О НАС" -->
         <section class="about-section">
             <h2>О нас: цифровые продукты премиум-класса</h2>
             <p>Интернет-портал эксклюзивных электронных материалов, гайдов по стилю, уходу и цифровых подарочных сертификатов Miledi & Velvet.</p>
             <p>Все товары доставляются мгновенно в цифровом формате (на email или в Telegram-бот сразу после подтверждения оплаты через платежную систему Lava).</p>
         </section>
 
-        <!-- ЮРИДИЧЕСКИЕ ГАРАНТИИ И ДОВЕРИЕ -->
         <div class="trust-banner">
             <div class="trust-item">
                 <h4>🔒 Безопасная онлайн-оплата</h4>
@@ -414,19 +403,19 @@
             </div>
         </div>
 
-        <!-- КАТЕГОРИЯ: ЦИФРОВЫЕ ТОВАРЫ -->
         <h2 class="section-title">📥 Электронные сертификаты и PDF-гайды</h2>
         <div class="products-grid">
             
-            <!-- 1. PDF-гайд по стилю и уходу -->
-            <div class="product-card" onclick="openModal('PDF-гайд: «Искусство соблазна и ухода»', '1 490 ₽', ['photo_5327954884457860595_y.jpg'], 'Подробный электронный путеводитель (PDF) по выбору белья, домашнего ухода и созданию неповторимого образов. Более 50 страниц полезной информации.')">
-                <div class="product-img-container">
+            <!-- 1. PDF-гайд -->
+            <div class="product-card" onclick="openModal('PDF-гайд: «Искусство соблазна и ухода»', '1 490 ₽', 'Подробный электронный путеводитель (PDF) по выбору домашнего ухода, стилю и созданию неповторимых образов. Более 50 страниц полезной информации.')">
+                <div class="product-cover">
                     <span class="badge">PDF-ХИТ</span>
-                    <img src="photo_5327954884457860595_y.jpg" alt="PDF-гайд по стилю" class="product-img">
+                    <span class="cover-type">Электронное издание</span>
+                    <h3>Искусство соблазна и ухода</h3>
                 </div>
                 <div class="product-content" onclick="event.stopPropagation()">
                     <div class="product-title">PDF-гайд: «Искусство соблазна и ухода»</div>
-                    <div class="product-desc">Подробный электронный путеводитель (PDF) по выбору белья, домашнего ухода и созданию образов.</div>
+                    <div class="product-desc">Подробный электронный путеводитель (PDF) по выбору ухода и созданию образов.</div>
                     <div class="product-footer">
                         <div class="product-price">1 490 ₽</div>
                         <a href="https://t.me/+EnVBAY_HTy8wMGU6" target="_blank" class="btn-order">Купить код</a>
@@ -434,15 +423,16 @@
                 </div>
             </div>
 
-            <!-- 2. Электронный подарочный сертификат 3000 -->
-            <div class="product-card" onclick="openModal('Электронный сертификат на 3 000 ₽', '3 000 ₽', ['photo_5327954884457860589_y.jpg'], 'Электронный подарочный промокод на сумму 3 000 рублей для приобретения любых товаров и материалов в нашем каталоге.')">
-                <div class="product-img-container">
+            <!-- 2. Сертификат 3000 -->
+            <div class="product-card" onclick="openModal('Электронный сертификат на 3 000 ₽', '3 000 ₽', 'Электронный подарочный промокод на сумму 3 000 рублей для приобретения любых цифровых товаров и материалов в нашем каталоге.')">
+                <div class="product-cover gold">
                     <span class="badge">СЕРТИФИКАТ</span>
-                    <img src="photo_5327954884457860589_y.jpg" alt="Сертификат 3000" class="product-img">
+                    <span class="cover-type">Подарочная карта</span>
+                    <h3>Сертификат 3 000 ₽</h3>
                 </div>
                 <div class="product-content" onclick="event.stopPropagation()">
                     <div class="product-title">Электронный сертификат на 3 000 ₽</div>
-                    <div class="product-desc">Электронный подарочный промокод на сумму 3 000 рублей для использования в нашем проекте.</div>
+                    <div class="product-desc">Электронный подарочный промокод на сумму 3 000 рублей.</div>
                     <div class="product-footer">
                         <div class="product-price">3 000 ₽</div>
                         <a href="https://t.me/+EnVBAY_HTy8wMGU6" target="_blank" class="btn-order">Купить код</a>
@@ -450,15 +440,16 @@
                 </div>
             </div>
 
-            <!-- 3. Электронный подарочный сертификат 5000 -->
-            <div class="product-card" onclick="openModal('Электронный сертификат на 5 000 ₽', '5 000 ₽', ['photo_5373340576968806801_y.jpg'], 'Электронный подарочный промокод на сумму 5 000 рублей. Идеальный подарок для близкого человека в цифровом формате.')">
-                <div class="product-img-container">
+            <!-- 3. Сертификат 5000 -->
+            <div class="product-card" onclick="openModal('Электронный сертификат на 5 000 ₽', '5 000 ₽', 'Электронный подарочный промокод на сумму 5 000 рублей. Идеальный подарок для близкого человека в цифровом формате.')">
+                <div class="product-cover gold">
                     <span class="badge">ПОПУЛЯРНО</span>
-                    <img src="photo_5373340576968806801_y.jpg" alt="Сертификат 5000" class="product-img">
+                    <span class="cover-type">Подарочная карта</span>
+                    <h3>Сертификат 5 000 ₽</h3>
                 </div>
                 <div class="product-content" onclick="event.stopPropagation()">
                     <div class="product-title">Электронный сертификат на 5 000 ₽</div>
-                    <div class="product-desc">Электронный подарочный промокод на сумму 5 000 рублей. Идеальный презент в цифровом виде.</div>
+                    <div class="product-desc">Электронный подарочный промокод на сумму 5 000 рублей.</div>
                     <div class="product-footer">
                         <div class="product-price">5 000 ₽</div>
                         <a href="https://t.me/+EnVBAY_HTy8wMGU6" target="_blank" class="btn-order">Купить код</a>
@@ -466,11 +457,12 @@
                 </div>
             </div>
 
-            <!-- 4. Электронный подарочный сертификат 10000 -->
-            <div class="product-card" onclick="openModal('Электронный сертификат на 10 000 ₽', '10 000 ₽', ['photo_5350494924366876687_y.jpg'], 'Максимальный электронный подарочный сертификат на сумму 10 000 рублей с открытым номиналом для любых покупок.')">
-                <div class="product-img-container">
+            <!-- 4. Сертификат 10000 -->
+            <div class="product-card" onclick="openModal('Электронный сертификат на 10 000 ₽', '10 000 ₽', 'Максимальный электронный подарочный сертификат на сумму 10 000 рублей с открытым номиналом для любых покупок.')">
+                <div class="product-cover gold">
                     <span class="badge">VIP СЕРТИФИКАТ</span>
-                    <img src="photo_5350494924366876687_y.jpg" alt="Сертификат 10000" class="product-img">
+                    <span class="cover-type">Подарочная карта</span>
+                    <h3>Сертификат 10 000 ₽</h3>
                 </div>
                 <div class="product-content" onclick="event.stopPropagation()">
                     <div class="product-title">Электронный сертификат на 10 000 ₽</div>
@@ -482,15 +474,16 @@
                 </div>
             </div>
 
-            <!-- 5. Чек-лист бьюти-рутины (PDF) -->
-            <div class="product-card" onclick="openModal('PDF Чек-лист: «Идеальная бьюти-рутина»', '990 ₽', ['photo_5388939378496835129_y.jpg'], 'Компактный и полезный чек-лист по ежедневной заботе о себе, подбору косметики и поддержанию гармонии.')">
-                <div class="product-img-container">
+            <!-- 5. Чек-лист -->
+            <div class="product-card" onclick="openModal('PDF Чек-лист: «Идеальная бьюти-рутина»', '990 ₽', 'Компактный и полезный чек-лист по ежедневной заботе о себе, подбору уходовой косметики и поддержанию гармонии.')">
+                <div class="product-cover">
                     <span class="badge">ЧЕК-ЛИСТ</span>
-                    <img src="photo_5388939378496835129_y.jpg" alt="Чек-лист" class="product-img">
+                    <span class="cover-type">PDF Документ</span>
+                    <h3>Идеальная бьюти-рутина</h3>
                 </div>
                 <div class="product-content" onclick="event.stopPropagation()">
                     <div class="product-title">PDF Чек-лист: «Идеальная бьюти-рутина»</div>
-                    <div class="product-desc">Компактный чек-лист по ежедневной заботе о себе и подбору уходовых средств.</div>
+                    <div class="product-desc">Компактный чек-лист по ежедневной заботе о себе и подбору ухода.</div>
                     <div class="product-footer">
                         <div class="product-price">990 ₽</div>
                         <a href="https://t.me/+EnVBAY_HTy8wMGU6" target="_blank" class="btn-order">Купить код</a>
@@ -498,11 +491,12 @@
                 </div>
             </div>
 
-            <!-- 6. Электронная книга-гайд -->
-            <div class="product-card" onclick="openModal('Электронная книга-гайд: «Уверенность без границ»', '1 990 ₽', ['photo_5391191178310519853_y.jpg'], 'Эксклюзивное издание в формате PDF. Практические советы по развитию уверенности, внутренней гармонии и самопрезентации.')">
-                <div class="product-img-container">
-                    <span class="badge">ЭЛЕКТРОННАЯ КНИГА</span>
-                    <img src="photo_5391191178310519853_y.jpg" alt="Электронная книга" class="product-img">
+            <!-- 6. Электронная книга -->
+            <div class="product-card" onclick="openModal('Электронная книга-гайд: «Уверенность без границ»', '1 990 ₽', 'Эксклюзивное издание в формате PDF. Практические советы по развитию уверенности, внутренней гармонии и самопрезентации.')">
+                <div class="product-cover">
+                    <span class="badge">КНИГА</span>
+                    <span class="cover-type">PDF Издание</span>
+                    <h3>Уверенность без границ</h3>
                 </div>
                 <div class="product-content" onclick="event.stopPropagation()">
                     <div class="product-title">Электронная книга-гайд: «Уверенность»</div>
@@ -516,7 +510,6 @@
 
         </div>
 
-        <!-- ЮРИДИЧЕСКИЙ РАЗДЕЛ ДЛЯ МОДЕРАЦИИ LAVA -->
         <section class="legal-section" id="legal-info-block">
             <h2>Правовая информация и правила магазина</h2>
             <div class="legal-tabs">
@@ -527,7 +520,6 @@
                 <button class="legal-tab-btn" onclick="openLegalTab(event, 'tab-offer')">Договор оферты</button>
             </div>
 
-            <!-- Вкладка: Контакты -->
             <div id="tab-contacts" class="legal-content-box active">
                 <h4>Служба поддержки и связи:</h4>
                 <p>• Официальный Telegram-канал для заказов и поддержки: <a href="https://t.me/+EnVBAY_HTy8wMGU6" target="_blank">Перейти в Telegram</a><br>
@@ -536,7 +528,6 @@
                 • Время работы: ежедневно с 10:00 до 21:00 (МСК).</p>
             </div>
 
-            <!-- Вкладка: Доставка -->
             <div id="tab-delivery" class="legal-content-box">
                 <h4>Условия доставки цифровых товаров:</h4>
                 <p>• <strong>Способ доставки:</strong> Доставка электронных кодов, сертификатов и PDF-гайд материалов осуществляется мгновенно на указанный покупателем адрес электронной почты (Email) или в Telegram-бот сразу после подтверждения оплаты.<br>
@@ -544,20 +535,17 @@
                 • <strong>Стоимость:</strong> Бесплатно (цифровая доставка).</p>
             </div>
 
-            <!-- Вкладка: Возврат -->
             <div id="tab-returns" class="legal-content-box">
                 <h4>Условия возврата и отмена платежа:</h4>
                 <p>• В соответствии с п. 14 Перечня непродовольственных товаров надлежащего качества, не подлежащих возврату или обмену, цифровые материалы (электронные книги, PDF-документы, электронные сертификаты) возврату не подлежат после отправки ссылки на скачивание или активации кода.<br>
                 • <strong>Отмена платежа:</strong> В случае технического сбоя или если цифровой код не был доставлен покупателю, средства возвращаются в полном объеме на банковскую карту плательщика в течение 3–5 рабочих дней через платежный агрегатор Lava.</p>
             </div>
 
-            <!-- Вкладка: Политика -->
             <div id="tab-privacy" class="legal-content-box">
                 <h4>Политика обработки персональных данных:</h4>
                 <p>Настоящая политика конфиденциальности определяет порядок обработки персональных данных пользователей интернет-магазина «Miledi & Velvet». Мы собираем только те данные, которые необходимы для отправки цифрового контента (email, контактные данные). Передаваемые данные надежно защищены и не передаются третьим лицам.</p>
             </div>
 
-            <!-- Вкладка: Оферта -->
             <div id="tab-offer" class="legal-content-box">
                 <h4>Публичная оферта (основные положения):</h4>
                 <p>Настоящий документ является официальным предложением (публичной офертой) интернет-магазина «Miledi & Velvet» для заключения договора купли-продажи цифровых товаров дистанционным способом. Оформление заказа означает полное принятие покупателем условий настоящей оферты. Все расчеты производятся в рублях РФ через платежный шлюз Lava с выдачей электронного чека.</p>
@@ -566,17 +554,12 @@
 
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle" style="margin-bottom: 10px; color: var(--text);"></h2>
             <div id="modalPrice" style="font-size: 1.4rem; font-weight: bold; color: var(--primary); margin-bottom: 15px;"></div>
-            
-            <img id="modalMainImg" class="modal-main-img" src="" alt="Товар">
-            
             <p id="modalDesc" style="color: var(--text-light); margin-bottom: 20px; line-height: 1.6;"></p>
-            
             <div style="background: #f9f6f0; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border);">
                 <strong style="display: block; margin-bottom: 8px; color: var(--text);">⚡ Информация о цифровой доставке:</strong>
                 <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.5;">
@@ -584,17 +567,15 @@
                     • Доступ к PDF-файлам и кодам сертификатов открывается мгновенно.
                 </p>
             </div>
-
             <a id="modalOrderBtn" href="https://t.me/+EnVBAY_HTy8wMGU6" target="_blank" class="btn-order" style="width: 100%; justify-content: center; padding: 12px; font-size: 1rem;">Купить код в Telegram</a>
         </div>
     </div>
 
     <script>
-        function openModal(title, price, images, desc) {
+        function openModal(title, price, desc) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalPrice').innerText = price;
             document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('modalMainImg').src = images[0];
             document.getElementById('productModal').style.display = 'flex';
         }
 
@@ -628,11 +609,6 @@
         <div class="legal-info">
             Все расчеты проводятся через платежный агрегатор Lava с выдачей электронных чеков.<br>
             Продажа электронных книг, сертификатов и цифровых гайдов регламентирована законодательством дистанционной торговли.
-        </div>
-        
-        <!-- Логотип Lava для верификации -->
-        <div style="text-align: center; padding: 15px 0;">
-            <img src="lava-logo-full-gradient.png" alt="Lava" width="120">
         </div>
     </footer>
 
